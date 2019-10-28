@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "jni.demo.com.jnidemo"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*ndk编译生成.so文件*/
+        ndk {
+            abiFilters "armeabi-v7a"//, "x86", "armeabi-v7a"
+        }
+
+
+        //配置Cmake运行参数,在defaultconfig节点下配置
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+    }
+
+    //关联CMake的程序清单文件,path 指向cmake文件路径，此处为项目工程根目录下。
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    //打包时的相关配置
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libjni_demo.so'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //一些MaterialDesign必须的库
+    compile 'com.android.support:appcompat-v7:23.4.0'
+}

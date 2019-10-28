@@ -1,0 +1,8 @@
+Executable : D:\D_SoftWare\SDK\cmake\3.6.4111459\bin\cmake.exe
+arguments : 
+--build
+D:\D_SoftWare\androidProject\JNI\jnidemo\app\.cxx\cmake\debug\armeabi-v7a
+--target
+jni_demo
+jvmArgs : 
+

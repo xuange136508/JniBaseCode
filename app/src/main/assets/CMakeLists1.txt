@@ -1,0 +1,35 @@
+# 基本的集合的形式编译mk文件
+# 学习教程： http://www.cnblogs.com/52php/p/5681755.html
+# demo:
+
+cmake_minimum_required(VERSION 3.4.1) # CMake版本
+
+#增加其他目录的源文件到集合变量中
+list(APPEND SRC_LIST
+        src/main/cpp/file_operate/file_operate.cpp
+        src/main/cpp/jni.cpp
+        src/main/cpp/onLoad.cpp
+    )
+
+add_library(
+            jni_demo # 动态库的名称
+
+            SHARED # 作为共享库（动态引入）
+
+            # src/main/cpp/jni_utils.cpp # cpp源文件路径
+
+            # 这里用list变量
+             ${SRC_LIST}
+           )
+
+
+find_library(
+               log-lib
+               log
+           )
+
+# 被链接的目标库的名称
+target_link_libraries(
+                      jni_demo
+                      ${log-lib}
+                    )

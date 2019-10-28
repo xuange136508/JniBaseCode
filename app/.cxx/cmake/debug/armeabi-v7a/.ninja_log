@@ -1,0 +1,13 @@
+# ninja log v5
+11	320	0	CMakeFiles/jni_demo.dir/src/main/cpp/call_static/call_static.cpp.o	eb4493140eb88303
+8	333	0	CMakeFiles/jni_demo.dir/src/main/cpp/call_so/call_so.cpp.o	1de08acc92301958
+14	359	0	CMakeFiles/jni_demo.dir/src/main/cpp/onLoad.cpp.o	deeeb09dfc8949f5
+5	406	0	CMakeFiles/jni_demo.dir/src/main/cpp/jni.cpp.o	98748cece329e3d4
+2	469	0	CMakeFiles/jni_demo.dir/src/main/cpp/thread/my_thread.cpp.o	7fb04546889c552d
+17	481	0	CMakeFiles/jni_demo.dir/src/main/cpp/file_operate/file_operate.cpp.o	a97e858864031438
+31	1164	0	CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/JNIUtil.cpp.o	233600903ad4d4e6
+26	1182	0	CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/DownloadModule.cpp.o	61675af366846e7
+44	1544	0	CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/my_curl.cpp.o	13feb1c08a6905f7
+36	1607	0	CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/HttpPostModule.cpp.o	877622eb344c8908
+21	1758	0	CMakeFiles/jni_demo.dir/src/main/cpp/my_stl/my_stl.cpp.o	d475024403d9d6de
+1759	2003	0	../../../../build/intermediates/cmake/debug/obj/armeabi-v7a/libjni_demo.so	47a00469ff71731c

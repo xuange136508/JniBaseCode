@@ -1,0 +1,31 @@
+{
+  "buildFiles": [
+    "D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\D_SoftWare\\SDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\.cxx\\cmake\\release\\armeabi-v7a --target clean"
+  ],
+  "libraries": {
+    "ShitAdd-Release-armeabi-v7a": {
+      "artifactName": "ShitAdd",
+      "abi": "armeabi-v7a",
+      "output": "D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\src\\main\\cpp\\call_so\\NetSdklib\\libShitAdd.so"
+    },
+    "jni_demo-Release-armeabi-v7a": {
+      "artifactName": "jni_demo",
+      "buildCommand": "D:\\D_SoftWare\\SDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\.cxx\\cmake\\release\\armeabi-v7a --target jni_demo",
+      "abi": "armeabi-v7a",
+      "output": "D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libjni_demo.so"
+    },
+    "curl-Release-armeabi-v7a": {
+      "artifactName": "curl",
+      "abi": "armeabi-v7a",
+      "output": "D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\src\\main\\cpp\\http_curl\\lib\\armeabi-v7a\\libcurl.so"
+    },
+    "add-Release-armeabi-v7a": {
+      "artifactName": "add",
+      "abi": "armeabi-v7a",
+      "output": "D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\src\\main\\cpp\\call_static\\impl\\libadd.a"
+    }
+  }
+}

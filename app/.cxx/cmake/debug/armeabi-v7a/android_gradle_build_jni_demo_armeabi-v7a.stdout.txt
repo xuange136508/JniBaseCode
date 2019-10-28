@@ -1,0 +1,16 @@
+[1/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/thread/my_thread.cpp.o
+[2/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/jni.cpp.o
+[3/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/call_so/call_so.cpp.o
+[4/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/call_static/call_static.cpp.o
+[5/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/onLoad.cpp.o
+[6/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/file_operate/file_operate.cpp.o
+[7/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/my_stl/my_stl.cpp.o
+[8/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/DownloadModule.cpp.o
+[9/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/JNIUtil.cpp.o
+[10/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/HttpPostModule.cpp.o
+[11/12] Building CXX object CMakeFiles/jni_demo.dir/src/main/cpp/http_curl/my_curl.cpp.o
+D:\D_SoftWare\androidProject\JNI\jnidemo\app\src\main\cpp\thread\my_thread.cpp:169:55: warning: format specifies type 'int' but the argument has type 'void *' [-Wformat]
+            sprintf(message,"Worker %d returned %d",i,result);
+                                                ~~    ^~~~~~
+1 warning generated.
+[12/12] Linking CXX shared library ..\..\..\..\build\intermediates\cmake\debug\obj\armeabi-v7a\libjni_demo.so

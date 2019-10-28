@@ -1,0 +1,122 @@
+
+{
+	"buildFiles" : [ "D:/D_SoftWare/androidProject/JNI/jnidemo/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"D:\\D_SoftWare\\SDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"ShitAdd-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "ShitAdd",
+			"buildType" : "debug",
+			"output" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/call_so/NetSdklib/libShitAdd.so",
+			"toolchain" : "2694911871"
+		},
+		"add-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "add",
+			"buildType" : "debug",
+			"output" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/call_static/impl/libadd.a",
+			"toolchain" : "2694911871"
+		},
+		"curl-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "curl",
+			"buildType" : "debug",
+			"output" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/http_curl/lib/armeabi-v7a/libcurl.so",
+			"toolchain" : "2694911871"
+		},
+		"jni_demo-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "jni_demo",
+			"buildCommand" : "D:\\D_SoftWare\\SDK\\cmake\\3.6.4111459\\bin\\cmake.exe --build D:\\D_SoftWare\\androidProject\\JNI\\jnidemo\\app\\.cxx\\cmake\\debug\\armeabi-v7a --target jni_demo",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/file_operate/file_operate.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/jni.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/onLoad.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/call_so/call_so.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/call_static/call_static.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/thread/my_thread.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/my_stl/my_stl.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/http_curl/my_curl.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/http_curl/DownloadModule.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/http_curl/HttpPostModule.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				},
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi19 --gcc-toolchain=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Djni_demo_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security  -frtti -fexceptions -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/src/main/cpp/http_curl/JNIUtil.cpp",
+					"workingDirectory" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/.cxx/cmake/debug/armeabi-v7a"
+				}
+			],
+			"output" : "D:/D_SoftWare/androidProject/JNI/jnidemo/app/build/intermediates/cmake/debug/obj/armeabi-v7a/libjni_demo.so",
+			"toolchain" : "2694911871"
+		}
+	},
+	"toolchains" : 
+	{
+		"2694911871" : 
+		{
+			"cCompilerExecutable" : "D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/D_SoftWare/SDK/ndk/20.0.5594570/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}
