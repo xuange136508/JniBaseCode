@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "jni.demo.com.jnidemo"
         minSdkVersion 19
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -20,7 +20,8 @@ android {
         //配置Cmake运行参数,在defaultconfig节点下配置
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions"
+                cppFlags ""//这里选择cpp设置
+                //如果要添加C++11支持就是 cppFlags "-std=c++11"
             }
         }
     }
@@ -34,7 +35,9 @@ android {
 
     //打包时的相关配置
     packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libjni_demo.so'
+        //优先使用哪个so包
+        pickFirst 'lib/armeabi-v7a/libjni_spec.so'
+        //pickFirst 'lib/x86/libjni_spec.so'
     }
 
     buildTypes {
@@ -53,7 +56,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     //一些MaterialDesign必须的库
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }

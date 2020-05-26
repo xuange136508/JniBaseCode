@@ -6,11 +6,6 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/tv_res"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 
     <Button
         android:id="@+id/btn_test1"
@@ -29,5 +24,31 @@
         android:text="测试3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="60dp"
+        android:id="@+id/tv_result1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="(1)："/>
+    <TextView
+        android:id="@+id/tv_result2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="(2)："/>
+    <TextView
+        android:id="@+id/tv_result3"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="(3)："/>
 
 </LinearLayout>
