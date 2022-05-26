@@ -17,6 +17,7 @@ public class JNativeInterface {
 
     public static native String getJniMd5();
 
+    public static native String getDeviceCode();
 
 
     //日志
@@ -25,6 +26,7 @@ public class JNativeInterface {
         Log.i("JNativeInterface", Data);
     }
 
-
+    //测试函数
+    public static native String stringFromJNI();
 
 }

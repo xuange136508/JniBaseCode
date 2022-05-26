@@ -209,15 +209,12 @@ jstring Java_jni_demo_com_jnidemo_jni_JniTest_getJniMd5(JNIEnv *env, jclass claz
 }
 
 
-
-
 /******************************JNI 注册函数************************************/
 
 static JNINativeMethod gMethods[] = {
 
 {"getJniString","()Ljava/lang/String;", (void *)Java_jni_demo_com_jnidemo_jni_JniTest_getJniString},
 {"getJniMd5","()Ljava/lang/String;", (void *)Java_jni_demo_com_jnidemo_jni_JniTest_getJniMd5},
-
 };
 
 //注册函数的方法，JNI_LOAD

@@ -4,8 +4,10 @@ cmake_minimum_required(VERSION 3.4.1) # CMake版本
 list(APPEND SRC_LIST
 
         # src/main/cpp/test.cpp
-        src/main/cpp/getPackageInfo.cpp
-        src/main/cpp/onLoad.cpp
+        # getPackageInfo.cpp
+        # getDeviceCode.cpp
+        jniStudyDemo.cpp
+        onLoad.cpp
     )
 
 add_library(

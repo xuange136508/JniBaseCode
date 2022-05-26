@@ -1,19 +1,32 @@
 package jni.demo.com.jnidemo;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -27,11 +40,15 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.UUID;
 
 import javax.crypto.Cipher;
 
+import jni.demo.com.jnidemo.bean.Person;
 import jni.demo.com.jnidemo.jni.JNativeInterface;
+import jni.demo.com.jnidemo.jni.JniStudyDemo;
 import jni.demo.com.jnidemo.utils.Base64Utils;
+import jni.demo.com.jnidemo.utils.DeviceIdUtil;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -51,9 +68,9 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toast(getJavaPackageName());
-                ((TextView)findViewById(R.id.tv_result1)).setText("包名："+getJavaPackageName());
+                ((TextView) findViewById(R.id.tv_result1)).setText("包名：" + getJavaPackageName());
 
-              }
+            }
         });
 
 
@@ -62,7 +79,7 @@ public class TestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //toast(getSha1AndMd5Info());
 
-                ((TextView)findViewById(R.id.tv_result2)).setText("c获取的签名MD5："+ "\n"+getSha1AndMd5Info());
+                ((TextView) findViewById(R.id.tv_result2)).setText("c获取签名MD5：" + "\n" + getSha1AndMd5Info());
             }
         });
 
@@ -70,14 +87,190 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String md5 = JNativeInterface.getJniMd5().toLowerCase();
-                toast("MD5 ==> "+md5);
+                toast("MD5 ==> " + md5);
 
-                ((TextView)findViewById(R.id.tv_result3)).setText("java获取的签名MD5："+ "\n"+md5);
+                ((TextView) findViewById(R.id.tv_result3)).setText("java获取签名MD5：" + "\n" + md5);
             }
         });
 
+        findViewById(R.id.btn_test4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //c实现
+                //String deviceId = JNativeInterface.getDeviceCode();
+                //java实现
+                //String deviceId = DeviceIdUtil.getDeviceId(TestActivity.this);
+                //toast("设备码 ==> "+deviceId);//98EB00C3C24BD68A7A3C52E3BB4D1AF4
+                //toast("长度 ==> "+deviceId.length());//32
+                //((TextView)findViewById(R.id.tv_result4)).setText("设备码："+ "\n"+deviceId);
+
+
+
+                /*
+                String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+                toast("设备码 ==> "+deviceId);
+                */
+                /*
+                TelephonyManager TelephonyMgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+                if (ActivityCompat.checkSelfPermission(TestActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    toast("无权限");
+                    return;
+                }
+                String deviceId = TelephonyMgr.getDeviceId();
+                toast("设备码 ==> "+deviceId);
+                 */
+                /*
+                String deviceId = getUniqueId();
+                toast("设备码 ==> "+deviceId);
+                Log.i("=====","设备码长度 = "+ deviceId.length());*/
+
+
+                // TODO: 2022/5/8 学习JNI开发
+                String testString = JniStudyDemo.stringFromJNI();
+                toast("测试 ==> "+testString);
+
+                /** Java 数据传递给 native */
+                /*new JniStudyDemo().testData(true,
+                        (byte) 1,
+                        ',',
+                        (short) 3,
+                        4,
+                        3.3f,
+                        2.2d,
+                        "DevYK",
+                        28,
+                        new int[]{1, 2, 3, 4, 5, 6, 7},
+                        new String[]{"1", "2", "4"},
+                        new Person("阳坤"),
+                        new boolean[]{false, true}
+                );*/
+
+            }
+        });
     }
+
+
+
+
+
+
+
+
+
+
+    //检查权限
+    private void checkPermission(){
+        PackageManager pm = getPackageManager();
+        boolean permission = (PackageManager.PERMISSION_GRANTED ==
+                pm.checkPermission("android.permission.READ_PHONE_STATE", "com.jni.base"));
+        if (permission) {
+            Toast.makeText(this,"已获得该权限",Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
+    //由于国内厂商的定制Rom等因素以及Android 系统本身唯一ID设计问题，我们没有办法保证各种场景下都100%唯一
+    //其他方案：服务器生成一串东西存在本地，存在不可篡改的路径
+    /**
+     * 获取Android设备码
+     * */
+    private String getDeviceCode() {
+        String deviceCode = "";
+        //国际移动设备识别码（International Mobile Equipment Identity，IMEI），即通常所说的手机序列号、手机“串号”。
+        //可辨识的范围是全球，即全球范围内IMEI不会重复。一机一号，类似于人的身份证号。
+        //获取IMEI 需要权限 READ_PHONE_STATE
+        //10.0 之后就不给非系统应用 IMEI 等不可便标识，保证隐私安全
+        //存在返回null或者000000的垃圾数据的情况，在部分pad上可能无法获取到DeviceId
+        TelephonyManager TelephonyMgr = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+        String mImei = TelephonyMgr.getDeviceId();
+        //Android ID，不需要权限,可能返回null,极个别设备获取不到数据或得到错误数据,低版本稳定
+        //设备首次启动后系统会随机生成一个64位的数字，用16进制字符串的形式表示
+        //恢复出厂或者刷机后会被重置
+        String mAndroidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+
+        return deviceCode;
+    }
+
+    private String getMacAddress() {
+        //WLAN MAC地址,没有wifi的时候，我们是无法获得数据,需要ACCESS_WIFI_STATE
+        WifiManager wm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        String mWlanMAC = wm.getConnectionInfo().getMacAddress();
+
+        //蓝牙 MAC地址，需要BLUETOOTH权限
+        //需要设备具备蓝牙或者wifi硬件
+        //String mBtMAC = BluetoothAdapter.getDefaultAdapter().getAddress();
+        //UUID 数据唯一、不需要权限，重新安装APP，DeviceId值会改变，安装APP重新生成新的UUID
+
+        //Android 6.0开始，使用该方法获取到的mac地址都为02:00:00:00:00:00。替代方案是通过读取系统文件/sys/class/net/wlan0/address来获取mac地址。
+        /*
+        try {
+            String mac =  new BufferedReader(new FileReader(new File("/sys/class/net/wlan0/address"))).readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+        //扫描网络接口获取Mac地址，暂时可行
+        String macAddress = null;
+        StringBuffer buf = new StringBuffer();
+        NetworkInterface networkInterface = null;
+        try {
+            networkInterface = NetworkInterface.getByName("eth1");
+            if (networkInterface == null) {
+                networkInterface = NetworkInterface.getByName("wlan0");
+            }
+            if (networkInterface == null) {
+                macAddress =  "02:00:00:00:00:02";
+            }
+            byte[] addr = networkInterface.getHardwareAddress();
+            for (byte b : addr) {
+                buf.append(String.format("%02X:", b));
+            }
+            if (buf.length() > 0) {
+                buf.deleteCharAt(buf.length() - 1);
+            }
+            macAddress = buf.toString();
+        } catch (SocketException e) {
+            e.printStackTrace();
+            macAddress =  "02:00:00:00:00:02";
+        }
+
+        return mWlanMAC;
+    }
+
+
+    /**
+     * 获取硬件信息组构建UUID
+        Build.BOARD  如：BLA  主板名称,无需权限,同型号设备相同
+        Build.BRAND  如：HUAWEI  厂商名称,无需权限,同型号设备相同
+        Build.HARDWARE  如：kirin970  硬件名称,无需权限,同型号设备相同
+        Build......更多硬件信息，略
+    */
+    private String getUniqueId(){
+        String serial = null;
+        String mDevId = "35" +
+                Build.BOARD.length()%10+ Build.BRAND.length()%10 +   // 主板 系统定制商
+                Build.CPU_ABI.length()%10 + Build.DEVICE.length()%10 +  //CPU指令集 设备参数
+                Build.DISPLAY.length()%10 + Build.HOST.length()%10 +  //显示设备号
+                Build.ID.length()%10 + Build.MANUFACTURER.length()%10 +  //设备硬件id  厂商
+                Build.MODEL.length()%10 + Build.PRODUCT.length()%10 +  //设备型号 产品名
+                Build.TAGS.length()%10 + Build.TYPE.length()%10 +  //设备标签  设备版本类型
+                Build.USER.length()%10 ; //13 位   //
+        Log.i("=====","mDevId = "+ mDevId);
+        try {
+            //API>=9 使用serial号
+            //设备序列号 serial：如：LKX7N18328000931,无需权限,极个别设备获取不到数据,
+            //同一批次出厂的的设备有可能出现生成的内容可能是一样的
+            serial = android.os.Build.class.getField("SERIAL").get(null).toString();
+            Log.i("=====","serial = "+ serial);
+            return new UUID(mDevId.hashCode(), serial.hashCode()).toString();
+        } catch (Exception exception) {
+            serial = "serial";
+        }
+        //读取设备的ROM版本号、厂商名、CPU型号和其他硬件信息来组合出一串15位的号码
+        return new UUID(mDevId.hashCode(), serial.hashCode()).toString();
+    }
+
 
     private String getSha1AndMd5Info(){
         return getSignMd5Str();

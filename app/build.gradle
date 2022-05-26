@@ -13,7 +13,7 @@ android {
 
         /*ndk编译生成.so文件*/
         ndk {
-            abiFilters "armeabi-v7a"//, "x86", "armeabi-v7a"
+            abiFilters "armeabi-v7a", "x86"//, "x86", "armeabi-v7a"
         }
 
 
@@ -29,7 +29,8 @@ android {
     //关联CMake的程序清单文件,path 指向cmake文件路径，此处为项目工程根目录下。
     externalNativeBuild {
         cmake {
-            path "CMakeLists.txt"
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2" // "3.6" "3.10.2"
         }
     }
 
@@ -37,7 +38,7 @@ android {
     packagingOptions {
         //优先使用哪个so包
         pickFirst 'lib/armeabi-v7a/libjni_spec.so'
-        //pickFirst 'lib/x86/libjni_spec.so'
+        pickFirst 'lib/x86/libjni_spec.so'
     }
 
     buildTypes {
